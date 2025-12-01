@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Sederhana</title>
+    <style>
+        body {
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
+        }
+        .calc {
+            background: #f2f2f2;
+            padding: 20px;
+            border-radius: 10px;
+            width: 220px;
+            text-align: center;
+        }
+        input {
+            width: 90%;
+            height: 40px;
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-align: right;
+        }
+        button {
+            width: 45px;
+            height: 45px;
+            font-size: 20px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calc">
+    <input type="text" id="layar" disabled>
+
+    <br>
+    <button onclick="tambah('7')">7</button>
+    <button onclick="tambah('8')">8</button>
+    <button onclick="tambah('9')">9</button>
+    <button onclick="tambah('/')">/</button>
+
+    <br>
+    <button onclick="tambah('4')">4</button>
+    <button onclick="tambah('5')">5</button>
+    <button onclick="tambah('6')">6</button>
+    <button onclick="tambah('*')">*</button>
+
+    <br>
+    <button onclick="tambah('1')">1</button>
+    <button onclick="tambah('2')">2</button>
+    <button onclick="tambah('3')">3</button>
+    <button onclick="tambah('-')">-</button>
+
+    <br>
+    <button onclick="tambah('0')">0</button>
+    <button onclick="tambah('.')">.</button>
+    <button onclick="hitung()">=</button>
+    <button onclick="tambah('+')">+</button>
+
+    <br>
+    <button style="width: 95px;" onclick="hapus()">Clear</button>
+</div>
+
+<script>
+    function tambah(x) {
+        document.getElementById("layar").value += x;
+    }
+
+    function hitung() {
+        try {
+            let hasil = eval(document.getElementById("layar").value);
+            document.getElementById("layar").value = hasil;
+        } catch {
+            document.getElementById("layar").value = "Error";
+        }
+    }
+
+    function hapus() {
+        document.getElementById("layar").value = "";
+    }
+</script>
+
+</body>
+</html>
